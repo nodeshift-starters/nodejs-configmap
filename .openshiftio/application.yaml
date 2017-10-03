@@ -97,6 +97,7 @@ objects:
   metadata:
     name: nodejs-configmap
     labels:
+      app: nodejs-configmap
       provider: nodeshift
       project: nodejs-configmap
       version: 1.0.0
@@ -126,11 +127,13 @@ objects:
                 protocol: TCP
       metadata:
         labels:
+          app: nodejs-configmap
           project: nodejs-configmap
           provider: nodeshift
           version: 1.0.0
     replicas: 1
     selector:
+      app: nodejs-configmap
       project: nodejs-configmap
       provider: nodeshift
     triggers:
