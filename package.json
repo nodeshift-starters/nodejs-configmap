@@ -13,7 +13,7 @@
     "ci": "npm run lint && npm run coveralls",
     "dependencyCheck": "szero . --ci",
     "release": "standard-version",
-    "openshift": "nodeshift --osc.strictSSL=false",
+    "openshift": "nodeshift --osc.strictSSL=false --nodeVersion=8.x",
     "start": "PORT=8080 node ./bin/www"
   },
   "repository": {
