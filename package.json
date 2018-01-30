@@ -14,6 +14,7 @@
     "dependencyCheck": "szero . --ci",
     "release": "standard-version",
     "openshift": "nodeshift --strictSSL=false --nodeVersion=8.x",
+    "postinstall": "license-reporter report && license-reporter save --xml licenses.xml",
     "start": "PORT=8080 node ./bin/www"
   },
   "repository": {
@@ -25,7 +26,8 @@
     "app.js",
     "public",
     "bin",
-    "LICENSE"
+    "LICENSE",
+    "licenses"
   ],
   "bugs": {
     "url": "https://github.com/bucharest-gold/nodejs-configmap/issues"
