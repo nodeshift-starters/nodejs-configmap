@@ -45,7 +45,7 @@ let configMap;
 let message;
 
 app.use('/api/greeting', (request, response) => {
-  const name = request.query ? request.query.name : 'World';
+  const name = (request.query && request.query.name) ? request.query.name : 'World';
 
   if (!message) {
     response.status(500);
