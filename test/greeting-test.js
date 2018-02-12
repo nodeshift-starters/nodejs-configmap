@@ -6,7 +6,6 @@ const sinon = require('sinon');
 test('test basic greeting api', (t) => {
   const clock = sinon.useFakeTimers();
   const app = proxyquire('../app', {
-    'openshift-config-loader': () => { return Promise.resolve({}); },
     'js-yaml': {
       safeLoad: (data) => {
         return data;
@@ -47,7 +46,6 @@ test('test basic greeting api', (t) => {
 test('test basic greeting api with name', (t) => {
   const clock = sinon.useFakeTimers();
   const app = proxyquire('../app', {
-    'openshift-config-loader': () => { return Promise.resolve({}); },
     'js-yaml': {
       safeLoad: (data) => {
         return data;
@@ -88,7 +86,6 @@ test('test basic greeting api with name', (t) => {
 test('test greeting api - no configmap yet', (t) => {
   const clock = sinon.useFakeTimers();
   const app = proxyquire('../app', {
-    'openshift-config-loader': () => { return Promise.resolve({}); },
     'js-yaml': {
       safeLoad: (data) => {
         return data;
@@ -126,7 +123,6 @@ test('test greeting api - no configmap yet', (t) => {
 test('test basic greeting api - check for configmap, but nothing', (t) => {
   const clock = sinon.useFakeTimers();
   const app = proxyquire('../app', {
-    'openshift-config-loader': () => { return Promise.resolve({}); },
     'js-yaml': {
       safeLoad: (data) => {
         return data;
@@ -184,7 +180,6 @@ test('test logger change', (t) => {
   );
 
   const app = proxyquire('../app', {
-    'openshift-config-loader': () => { return Promise.resolve({}); },
     'js-yaml': {
       safeLoad: (data) => {
         return data;

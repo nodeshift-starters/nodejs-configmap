@@ -78,25 +78,22 @@ setInterval(() => {
 }, 2000);
 
 // Get ConfigMap Stuff
-const openshiftConfigLoader = require('openshift-config-loader');
 const openshiftRestClient = require('openshift-rest-client');
 const jsyaml = require('js-yaml');
 
 // Find the Config Map
 function retrieveConfigfMap () {
-  return openshiftConfigLoader().then((config) => {
-    const settings = {
-      request: {
-        strictSSL: false
-      }
-    };
+  const settings = {
+    request: {
+      strictSSL: false
+    }
+  };
 
-    return openshiftRestClient(config, settings).then((client) => {
-      const configMapName = 'app-config';
-      return client.configmaps.find(configMapName).then((configMap) => {
-        const configMapParsed = jsyaml.safeLoad(configMap.data['app-config.yml']);
-        return configMapParsed;
-      });
+  return openshiftRestClient(settings).then((client) => {
+    const configMapName = 'app-config';
+    return client.configmaps.find(configMapName).then((configMap) => {
+      const configMapParsed = jsyaml.safeLoad(configMap.data['app-config.yml']);
+      return configMapParsed;
     });
   });
 }
