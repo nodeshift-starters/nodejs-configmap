@@ -14,10 +14,16 @@
     "coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
     "ci": "npm run lint && npm run coveralls",
     "dependencyCheck": "szero . --ci",
-    "release": "standard-version",
+    "release": "standard-version -a",
     "openshift": "nodeshift --strictSSL=false --nodeVersion=8.x",
     "postinstall": "license-reporter report && license-reporter save --xml licenses.xml",
     "start": "PORT=8080 node ./bin/www"
+  },
+  "standard-version": {
+    "scripts": {
+      "postbump": "node release.js",
+      "precommit": "git add .openshiftio/application.yaml"
+    }
   },
   "repository": {
     "type": "git",
