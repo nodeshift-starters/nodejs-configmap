@@ -1,0 +1,17 @@
+# Change Log
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+<a name="1.2.0"></a>
+# [1.2.0](https://github.com/bucharest-gold/nodejs-configmap/compare/v1.1.2...v1.2.0) (2018-03-07)
+
+
+### Bug Fixes
+
+* **application.yaml:** docker tag should be 8.x ([f4b6390](https://github.com/bucharest-gold/nodejs-configmap/commit/f4b6390))
+* **package:** update openshift-rest-client to version 1.0.0 ([238080c](https://github.com/bucharest-gold/nodejs-configmap/commit/238080c))
+
+
+### Features
+
+* **package:** Move nsp check from prepare step to an optional script. ([#32](https://github.com/bucharest-gold/nodejs-configmap/issues/32)) ([192de76](https://github.com/bucharest-gold/nodejs-configmap/commit/192de76)), closes [#31](https://github.com/bucharest-gold/nodejs-configmap/issues/31)
