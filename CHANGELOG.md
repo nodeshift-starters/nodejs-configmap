@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.2.1"></a>
+## [1.2.1](https://github.com/bucharest-gold/nodejs-configmap/compare/v1.2.0...v1.2.1) (2018-03-07)
+
+
+### Bug Fixes
+
+* **package:** need to run the licenser after the version bump ([679ef24](https://github.com/bucharest-gold/nodejs-configmap/commit/679ef24))
+
+
+
 <a name="1.2.0"></a>
 # [1.2.0](https://github.com/bucharest-gold/nodejs-configmap/compare/v1.1.2...v1.2.0) (2018-03-07)
 

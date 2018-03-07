@@ -1,7 +1,7 @@
 {
   "name": "nodejs-configmap",
   "description": "This project demonstrates application and runtime configuration leveraging external configuration sources",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": "Red Hat, Inc.",
   "license": "Apache-2.0",
   "scripts": {
