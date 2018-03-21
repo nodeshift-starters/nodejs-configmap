@@ -55,7 +55,7 @@
     "nsp": "~3.2.1",
     "nyc": "~11.6.0",
     "proxyquire": "^2.0.0",
-    "sinon": "^4.2.2",
+    "sinon": "^5.0.0",
     "standard-version": "^4.3.0",
     "supertest": "^3.0.0",
     "szero": "^1.0.0",
