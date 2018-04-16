@@ -91,7 +91,7 @@ objects:
         provider: nodeshift
         expose: 'true'
         project: nodejs-configmap
-        version: 1.2.1
+        version: 1.2.2
   - apiVersion: v1
     kind: DeploymentConfig
     metadata:
@@ -100,7 +100,7 @@ objects:
         app: nodejs-configmap
         provider: nodeshift
         project: nodejs-configmap
-        version: 1.2.1
+        version: 1.2.2
     spec:
       template:
         spec:
@@ -130,7 +130,7 @@ objects:
             app: nodejs-configmap
             project: nodejs-configmap
             provider: nodeshift
-            version: 1.2.1
+            version: 1.2.2
       replicas: 1
       selector:
         app: nodejs-configmap
@@ -159,4 +159,4 @@ objects:
       labels:
         provider: nodeshift
         project: nodejs-configmap
-        version: 1.2.1
+        version: 1.2.2
