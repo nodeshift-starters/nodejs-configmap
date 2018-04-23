@@ -17,7 +17,7 @@
     "release": "standard-version -a",
     "openshift": "nodeshift --strictSSL=false --nodeVersion=8.x",
     "postinstall": "license-reporter report -s && license-reporter save -s --xml licenses.xml",
-    "start": "PORT=8080 node ."
+    "start": "node ."
   },
   "main": "./bin/www",
   "standard-version": {
