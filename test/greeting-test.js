@@ -3,18 +3,18 @@ const proxyquire = require('proxyquire');
 const supertest = require('supertest');
 const sinon = require('sinon');
 
-test('test basic greeting api', (t) => {
+test('test basic greeting api', t => {
   const clock = sinon.useFakeTimers();
   const app = proxyquire('../app', {
     'js-yaml': {
-      safeLoad: (data) => {
+      safeLoad: data => {
         return data;
       }
     },
     'openshift-rest-client': () => {
       return Promise.resolve({
         configmaps: {
-          find: (configMapName) => {
+          find: () => {
             const configMap = {
               data: {
                 'app-config.yml': {
@@ -43,18 +43,18 @@ test('test basic greeting api', (t) => {
     });
 });
 
-test('test basic greeting api with name', (t) => {
+test('test basic greeting api with name', t => {
   const clock = sinon.useFakeTimers();
   const app = proxyquire('../app', {
     'js-yaml': {
-      safeLoad: (data) => {
+      safeLoad: data => {
         return data;
       }
     },
     'openshift-rest-client': () => {
       return Promise.resolve({
         configmaps: {
-          find: (configMapName) => {
+          find: () => {
             const configMap = {
               data: {
                 'app-config.yml': {
@@ -83,18 +83,18 @@ test('test basic greeting api with name', (t) => {
     });
 });
 
-test('test greeting api - no configmap yet', (t) => {
+test('test greeting api - no configmap yet', t => {
   const clock = sinon.useFakeTimers();
   const app = proxyquire('../app', {
     'js-yaml': {
-      safeLoad: (data) => {
+      safeLoad: data => {
         return data;
       }
     },
     'openshift-rest-client': () => {
       return Promise.resolve({
         configmaps: {
-          find: (configMapName) => {
+          find: () => {
             const configMap = {
               data: {
                 'app-config.yml': {
@@ -120,18 +120,18 @@ test('test greeting api - no configmap yet', (t) => {
     });
 });
 
-test('test basic greeting api - check for configmap, but nothing', (t) => {
+test('test basic greeting api - check for configmap, but nothing', t => {
   const clock = sinon.useFakeTimers();
   const app = proxyquire('../app', {
     'js-yaml': {
-      safeLoad: (data) => {
+      safeLoad: data => {
         return data;
       }
     },
     'openshift-rest-client': () => {
       return Promise.resolve({
         configmaps: {
-          find: (configMapName) => {
+          find: () => {
             const configMap = {
               data: {
               }
@@ -156,7 +156,7 @@ test('test basic greeting api - check for configmap, but nothing', (t) => {
     });
 });
 
-test('test logger change', (t) => {
+test('test logger change', t => {
   const clock = sinon.useFakeTimers();
   const findStub = sinon.stub();
   findStub.onCall(0).returns(Promise.resolve({
@@ -181,11 +181,11 @@ test('test logger change', (t) => {
 
   const app = proxyquire('../app', {
     'js-yaml': {
-      safeLoad: (data) => {
+      safeLoad: data => {
         return data;
       }
     },
-    'winston': {
+    winston: {
       level: 'info',
       info: () => {},
       debug: () => {}

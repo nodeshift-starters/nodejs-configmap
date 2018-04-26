@@ -25,8 +25,8 @@
             </licenses>
         </dependency>
         <dependency>
-            <packageName>js-yaml</packageName>
-            <version>3.10.0</version>
+            <packageName>express</packageName>
+            <version>4.16.0</version>
             <licenses>
                 <license>
                     <name>MIT License</name>
@@ -45,8 +45,8 @@
             </licenses>
         </dependency>
         <dependency>
-            <packageName>openshift-rest-client</packageName>
-            <version>1.0.1</version>
+            <packageName>license-reporter</packageName>
+            <version>1.2.0</version>
             <licenses>
                 <license>
                     <name>Apache License 2.0</name>
