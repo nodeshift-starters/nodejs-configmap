@@ -18,21 +18,21 @@
  *
  */
 
-const express = require('express');
 const path = require('path');
+const express = require('express');
 const bodyParser = require('body-parser');
-
 // Setup logging
 const logger = require('winston');
+
 const app = express();
 
 // Health Check Middleware
 const probe = require('kube-probe');
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
-// expose the license.html at http[s]://[host]:[port]/licences/licenses.html
+// Expose the license.html at http[s]://[host]:[port]/licences/licenses.html
 app.use('/licenses', express.static(path.join(__dirname, 'licenses')));
 
 let configMap;
@@ -49,13 +49,13 @@ app.use('/api/greeting', (request, response) => {
   return response.send({content: message.replace(/%s/g, name)});
 });
 
-// set health check
+// Set health check
 probe(app);
 
 // Periodic check for config map update
 // If new configMap is found, then set new log level
 setInterval(() => {
-  retrieveConfigfMap().then((config) => {
+  retrieveConfigfMap().then(config => {
     if (!config) {
       message = null;
       return;
@@ -72,7 +72,7 @@ setInterval(() => {
         logger.level = config.level.toLowerCase();
       }
     }
-  }).catch((err) => {
+  }).catch(err => {
     logger.error('Error getting config', err);
   });
 }, 2000);
@@ -89,9 +89,9 @@ function retrieveConfigfMap () {
     }
   };
 
-  return openshiftRestClient(settings).then((client) => {
+  return openshiftRestClient(settings).then(client => {
     const configMapName = 'app-config';
-    return client.configmaps.find(configMapName).then((configMap) => {
+    return client.configmaps.find(configMapName).then(configMap => {
       const configMapParsed = jsyaml.safeLoad(configMap.data['app-config.yml']);
       return configMapParsed;
     });
