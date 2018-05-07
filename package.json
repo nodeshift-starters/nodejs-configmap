@@ -32,6 +32,9 @@
       "space-before-function-paren": [
         "error",
         "always"
+      ],
+      "prefer-destructuring": [
+        "off"
       ]
     }
   },
