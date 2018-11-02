@@ -40,7 +40,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/bucharest-gold/nodejs-configmap.git"
+    "url": "git://github.com/nodeshift-starters/nodejs-configmap.git"
   },
   "files": [
     "package.json",
@@ -51,9 +51,9 @@
     "licenses"
   ],
   "bugs": {
-    "url": "https://github.com/bucharest-gold/nodejs-configmap/issues"
+    "url": "https://github.com/nodeshift-starters/nodejs-configmap/issues"
   },
-  "homepage": "https://github.com/bucharest-gold/nodejs-configmap",
+  "homepage": "https://github.com/nodeshift-starters/nodejs-configmap",
   "devDependencies": {
     "coveralls": "^3.0.0",
     "nodeshift": "~1.12.0",

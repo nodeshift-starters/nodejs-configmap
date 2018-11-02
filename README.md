@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/bucharest-gold/nodejs-configmap.svg?branch=master)](https://travis-ci.org/bucharest-gold/nodejs-configmap) [![Coverage Status](https://coveralls.io/repos/github/bucharest-gold/nodejs-configmap/badge.svg?branch=master)](https://coveralls.io/github/bucharest-gold/nodejs-configmap?branch=master) [![Greenkeeper badge](https://badges.greenkeeper.io/bucharest-gold/nodejs-configmap.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.org/nodeshift-starters/nodejs-configmap.svg?branch=master)](https://travis-ci.org/nodeshift-starters/nodejs-configmap) [![Coverage Status](https://coveralls.io/repos/github/nodeshift-starters/nodejs-configmap/badge.svg?branch=master)](https://coveralls.io/github/nodeshift-starters/nodejs-configmap?branch=master) [![Greenkeeper badge](https://badges.greenkeeper.io/nodeshift-starters/nodejs-configmap.svg)](https://greenkeeper.io/)
 
 
 # nodejs-configmap
