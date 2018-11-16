@@ -91,7 +91,7 @@ objects:
         provider: nodeshift
         expose: 'true'
         project: nodejs-configmap
-        version: 2.0.1
+        version: 2.1.0
   - apiVersion: v1
     kind: DeploymentConfig
     metadata:
@@ -100,21 +100,21 @@ objects:
         app: nodejs-configmap
         provider: nodeshift
         project: nodejs-configmap
-        version: 2.0.1
+        version: 2.1.0
     spec:
       template:
         spec:
           volumes:
-          - configMap:
-              name: app-config
-              items:
-              - key: "app-config.yml"
-                path: "app-config.yml"
-            name: config
+            - configMap:
+                name: app-config
+                items:
+                  - key: app-config.yml
+                    path: app-config.yml
+              name: config
           containers:
             - env:
-              - name: NODE_CONFIGMAP_PATH
-                value: /app/config/app-config.yml
+                - name: NODE_CONFIGMAP_PATH
+                  value: /app/config/app-config.yml
               readinessProbe:
                 httpGet:
                   path: /api/health/readiness
@@ -132,8 +132,8 @@ objects:
               securityContext:
                 privileged: false
               volumeMounts:
-              - name: config
-                mountPath: /app/config
+                - name: config
+                  mountPath: /app/config
               ports:
                 - containerPort: 8080
                   name: http
@@ -143,7 +143,7 @@ objects:
             app: nodejs-configmap
             project: nodejs-configmap
             provider: nodeshift
-            version: 2.0.1
+            version: 2.1.0
       replicas: 1
       selector:
         app: nodejs-configmap
@@ -172,4 +172,4 @@ objects:
       labels:
         provider: nodeshift
         project: nodejs-configmap
-        version: 2.0.1
+        version: 2.1.0
