@@ -19,8 +19,12 @@
  */
 
 const path = require('path');
+const fs = require('fs');
+const {promisify} = require('util');
 const express = require('express');
 const bodyParser = require('body-parser');
+
+const readFile = promisify(fs.readFile);
 // Setup logging
 const logger = require('winston');
 
@@ -78,23 +82,14 @@ setInterval(() => {
 }, 2000);
 
 // Get ConfigMap Stuff
-const openshiftRestClient = require('openshift-rest-client');
 const jsyaml = require('js-yaml');
 
 // Find the Config Map
 function retrieveConfigfMap () {
-  const settings = {
-    request: {
-      strictSSL: false
-    }
-  };
-
-  return openshiftRestClient(settings).then(client => {
-    const configMapName = 'app-config';
-    return client.configmaps.find(configMapName).then(configMap => {
-      const configMapParsed = jsyaml.safeLoad(configMap.data['app-config.yml']);
-      return configMapParsed;
-    });
+  return readFile(process.env.NODE_CONFIGMAP_PATH, {encoding: 'utf8'}).then(configMap => {
+    // Parse the configMap, which is yaml
+    const configMapParsed = jsyaml.safeLoad(configMap);
+    return configMapParsed;
   });
 }
 

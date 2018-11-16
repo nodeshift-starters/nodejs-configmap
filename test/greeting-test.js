@@ -11,22 +11,14 @@ test('test basic greeting api', t => {
         return data;
       }
     },
-    'openshift-rest-client': () => {
-      return Promise.resolve({
-        configmaps: {
-          find: () => {
-            const configMap = {
-              data: {
-                'app-config.yml': {
-                  message: 'Hello, %s from a ConfigMap !',
-                  level: 'INFO'
-                }
-              }
-            };
-            return Promise.resolve(configMap);
-          }
-        }
-      });
+    fs: {
+      readFile: (location, options, cb) => {
+        const configmap = {
+          message: 'Hello, %s from a ConfigMap !',
+          level: 'INFO'
+        };
+        return cb(null, configmap);
+      }
     }
   });
 
@@ -51,22 +43,14 @@ test('test basic greeting api with name', t => {
         return data;
       }
     },
-    'openshift-rest-client': () => {
-      return Promise.resolve({
-        configmaps: {
-          find: () => {
-            const configMap = {
-              data: {
-                'app-config.yml': {
-                  message: 'Hello, %s from a ConfigMap !',
-                  level: 'INFO'
-                }
-              }
-            };
-            return Promise.resolve(configMap);
-          }
-        }
-      });
+    fs: {
+      readFile: (location, options, cb) => {
+        const configmap = {
+          message: 'Hello, %s from a ConfigMap !',
+          level: 'INFO'
+        };
+        return cb(null, configmap);
+      }
     }
   });
 
@@ -91,22 +75,14 @@ test('test greeting api - no configmap yet', t => {
         return data;
       }
     },
-    'openshift-rest-client': () => {
-      return Promise.resolve({
-        configmaps: {
-          find: () => {
-            const configMap = {
-              data: {
-                'app-config.yml': {
-                  message: 'Hello, %s from a ConfigMap !',
-                  level: 'INFO'
-                }
-              }
-            };
-            return Promise.resolve(configMap);
-          }
-        }
-      });
+    fs: {
+      readFile: (location, options, cb) => {
+        const configmap = {
+          message: 'Hello, %s from a ConfigMap !',
+          level: 'INFO'
+        };
+        return cb(null, configmap);
+      }
     }
   });
 
@@ -128,18 +104,10 @@ test('test basic greeting api - check for configmap, but nothing', t => {
         return data;
       }
     },
-    'openshift-rest-client': () => {
-      return Promise.resolve({
-        configmaps: {
-          find: () => {
-            const configMap = {
-              data: {
-              }
-            };
-            return Promise.resolve(configMap);
-          }
-        }
-      });
+    fs: {
+      readFile: (location, options, cb) => {
+        return cb(null, null);
+      }
     }
   });
 
@@ -158,27 +126,6 @@ test('test basic greeting api - check for configmap, but nothing', t => {
 
 test('test logger change', t => {
   const clock = sinon.useFakeTimers();
-  const findStub = sinon.stub();
-  findStub.onCall(0).returns(Promise.resolve({
-    data: {
-      'app-config.yml': {
-        message: 'Hello, %s from a ConfigMap !',
-        level: 'INFO'
-      }
-    }
-  })
-  );
-
-  findStub.onCall(1).returns(Promise.resolve({
-    data: {
-      'app-config.yml': {
-        message: 'Hello, %s from a ConfigMap !',
-        level: 'DEBUG'
-      }
-    }
-  })
-  );
-
   const app = proxyquire('../app', {
     'js-yaml': {
       safeLoad: data => {
@@ -190,12 +137,13 @@ test('test logger change', t => {
       info: () => {},
       debug: () => {}
     },
-    'openshift-rest-client': () => {
-      return Promise.resolve({
-        configmaps: {
-          find: findStub
-        }
-      });
+    fs: {
+      readFile: (location, options, cb) => {
+        return cb(null, {
+          message: 'Hello, %s from a ConfigMap !',
+          level: 'DEBUG'
+        });
+      }
     }
   });
 
