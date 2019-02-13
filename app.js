@@ -49,6 +49,7 @@ app.use('/api/greeting', (request, response) => {
     response.status(500);
     return response.send({content: 'no config map'});
   }
+
   logger.debug('Replying to request, parameter={}', name);
   return response.send({content: message.replace(/%s/g, name)});
 });
@@ -76,8 +77,8 @@ setInterval(() => {
         logger.level = config.level.toLowerCase();
       }
     }
-  }).catch(err => {
-    logger.error('Error getting config', err);
+  }).catch(error => {
+    logger.error('Error getting config', error);
   });
 }, 2000);
 
