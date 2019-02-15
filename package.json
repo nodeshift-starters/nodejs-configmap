@@ -55,7 +55,7 @@
   "devDependencies": {
     "coveralls": "^3.0.0",
     "nodeshift": "~2.1.1",
-    "nyc": "~13.2.0",
+    "nyc": "~13.3.0",
     "proxyquire": "^2.0.0",
     "sinon": "^7.2.3",
     "standard-version": "^5.0.0",
