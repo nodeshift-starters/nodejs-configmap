@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.0.0"></a>
+# [3.0.0](https://github.com/nodeshift-starters/nodejs-configmap/compare/v2.1.1...v3.0.0) (2019-05-31)
+
+
+### Features
+
+*  Update to use Node.js 12.x ([9939f14](https://github.com/nodeshift-starters/nodejs-configmap/commit/9939f14))
+
+
+### BREAKING CHANGES
+
+* start using node 12
+
+
+
 <a name="2.1.1"></a>
 ## [2.1.1](https://github.com/nodeshift-starters/nodejs-configmap/compare/v2.1.0...v2.1.1) (2019-04-15)
 
