@@ -72,6 +72,6 @@
     "js-yaml": "^3.12.2",
     "kube-probe": "^0.3.1",
     "license-reporter": "^1.2.0",
-    "winston": "~3.2.1"
+    "pino": "~5.12.6"
   }
 }
