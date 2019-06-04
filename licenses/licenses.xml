@@ -1,9 +1,29 @@
 <?xml version='1.0'?>
 <licenseSummary>
     <project>nodejs-configmap</project>
-    <version>3.0.0</version>
+    <version>3.1.0</version>
     <license>Apache-2.0</license>
     <dependencies>
+        <dependency>
+            <packageName>express</packageName>
+            <version>4.17.1</version>
+            <licenses>
+                <license>
+                    <name>MIT License</name>
+                    <url>http://www.opensource.org/licenses/MIT</url>
+                </license>
+            </licenses>
+        </dependency>
+        <dependency>
+            <packageName>js-yaml</packageName>
+            <version>3.12.2</version>
+            <licenses>
+                <license>
+                    <name>MIT License</name>
+                    <url>http://www.opensource.org/licenses/MIT</url>
+                </license>
+            </licenses>
+        </dependency>
         <dependency>
             <packageName>kube-probe</packageName>
             <version>0.3.1</version>
@@ -15,8 +35,8 @@
             </licenses>
         </dependency>
         <dependency>
-            <packageName>winston</packageName>
-            <version>3.2.1</version>
+            <packageName>pino</packageName>
+            <version>5.12.6</version>
             <licenses>
                 <license>
                     <name>MIT License</name>

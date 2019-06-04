@@ -1,6 +1,15 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [3.1.0](https://github.com/nodeshift-starters/nodejs-configmap/compare/v3.0.0...v3.1.0) (2019-06-04)
+
+
+### Features
+
+* remove winston and start using pino for logging ([#86](https://github.com/nodeshift-starters/nodejs-configmap/issues/86)) ([5f95380](https://github.com/nodeshift-starters/nodejs-configmap/commit/5f95380))
+
+
 
 <a name="3.0.0"></a>
 # [3.0.0](https://github.com/nodeshift-starters/nodejs-configmap/compare/v2.1.1...v3.0.0) (2019-05-31)
