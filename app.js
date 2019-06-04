@@ -26,7 +26,7 @@ const bodyParser = require('body-parser');
 
 const readFile = promisify(fs.readFile);
 // Setup logging
-const logger = require('winston');
+const logger = require('pino')();
 
 const app = express();
 
