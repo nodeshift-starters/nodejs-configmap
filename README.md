@@ -33,6 +33,7 @@ Minishift should be started, and you should be logged in with a currently
 active project. Then run the `npm run openshift` command.
 
 ```sh
+$ oc create configmap app-config --from-file=app-config.yml
 $ minishift start # You may have some options here, e.g. --memory=8096 --vm-driver=virtualbox
 $ oc login -u developer # Login
 $ oc new-project my-example-project # Create a project to deploy to
