@@ -1,7 +1,7 @@
 <?xml version='1.0'?>
 <licenseSummary>
     <project>nodejs-configmap</project>
-    <version>3.1.0</version>
+    <version>3.1.1</version>
     <license>Apache-2.0</license>
     <dependencies>
         <dependency>
@@ -56,7 +56,7 @@
         </dependency>
         <dependency>
             <packageName>pino</packageName>
-            <version>5.13.0</version>
+            <version>5.14.0</version>
             <licenses>
                 <license>
                     <name>MIT License</name>

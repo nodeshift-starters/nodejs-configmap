@@ -1,7 +1,7 @@
 {
   "name": "nodejs-configmap",
   "description": "This project demonstrates application and runtime configuration leveraging external configuration sources",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "author": "Red Hat, Inc.",
   "license": "Apache-2.0",
   "scripts": {
@@ -52,16 +52,16 @@
   },
   "homepage": "https://github.com/nodeshift-starters/nodejs-configmap",
   "devDependencies": {
-    "coveralls": "^3.0.0",
+    "coveralls": "^3.0.9",
     "nodeshift": "~4.1.0",
     "nyc": "~14.1.1",
     "proxyquire": "~2.1.3",
-    "sinon": "^7.2.4",
-    "standard-version": "^6.0.1",
+    "sinon": "^7.5.0",
+    "standard-version": "^7.0.1",
     "supertest": "~4.0.2",
     "tap-spec": "~5.0.0",
     "tape": "~4.11.0",
-    "xo": "~0.24.0"
+    "xo": "~0.25.3"
   },
   "dependencies": {
     "body-parser": "~1.19.0",
@@ -70,6 +70,6 @@
     "js-yaml": "^3.13.1",
     "kube-probe": "~0.3.2",
     "license-reporter": "~1.2.2",
-    "pino": "~5.13.0"
+    "pino": "~5.14.0"
   }
 }
