@@ -70,6 +70,6 @@
     "js-yaml": "^3.13.1",
     "kube-probe": "~0.3.2",
     "license-reporter": "~1.2.2",
-    "pino": "~5.13.0"
+    "pino": "~5.15.0"
   }
 }
