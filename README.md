@@ -3,8 +3,6 @@
 # nodejs-configmap
 This project demonstrates application and runtime configuration leveraging external configuration sources
 
-http://appdev.openshift.io/docs/nodejs-runtime.html
-
 ## Running The Example
 
 You can run this example as node processes on your localhost, as pods on a local
