@@ -13,7 +13,7 @@ parameters:
   - name: RELEASE_VERSION
     description: The release version number of application
     displayName: Release version
-    value: 2.2.1
+    value: 2.2.2
     required: true
   - name: SOURCE_REPOSITORY_URL
     description: The source URL for the application
@@ -102,7 +102,7 @@ objects:
         expose: 'true'
         project: nodejs-configmap
         version: '${RELEASE_VERSION}'
-        'app.openshift.io/runtime': 'nodejs'
+        app.openshift.io/runtime: nodejs
   - apiVersion: apps.openshift.io/v1
     kind: DeploymentConfig
     metadata:
@@ -112,7 +112,7 @@ objects:
         provider: nodeshift
         project: nodejs-configmap
         version: '${RELEASE_VERSION}'
-        'app.openshift.io/runtime': 'nodejs'
+        app.openshift.io/runtime: nodejs
     spec:
       template:
         spec:
@@ -156,7 +156,7 @@ objects:
             project: nodejs-configmap
             provider: nodeshift
             version: '${RELEASE_VERSION}'
-            'app.openshift.io/runtime': 'nodejs'
+            app.openshift.io/runtime: nodejs
       replicas: 1
       selector:
         app: nodejs-configmap
@@ -186,4 +186,4 @@ objects:
         provider: nodeshift
         project: nodejs-configmap
         version: '${RELEASE_VERSION}'
-        'app.openshift.io/runtime': 'nodejs'
+        app.openshift.io/runtime: nodejs
