@@ -20,7 +20,7 @@
 
 const path = require('path');
 const fs = require('fs');
-const {promisify} = require('util');
+const { promisify } = require('util');
 const express = require('express');
 const bodyParser = require('body-parser');
 
@@ -34,7 +34,7 @@ const app = express();
 const probe = require('kube-probe');
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 // Expose the license.html at http[s]://[host]:[port]/licences/licenses.html
 app.use('/licenses', express.static(path.join(__dirname, 'licenses')));
@@ -47,11 +47,11 @@ app.use('/api/greeting', (request, response) => {
 
   if (!message) {
     response.status(500);
-    return response.send({content: 'no config map'});
+    return response.send({ content: 'no config map' });
   }
 
   logger.debug('Replying to request, parameter={}', name);
-  return response.send({content: message.replace(/%s/g, name)});
+  return response.send({ content: message.replace(/%s/g, name) });
 });
 
 // Set health check
@@ -87,7 +87,7 @@ const jsyaml = require('js-yaml');
 
 // Find the Config Map
 function retrieveConfigfMap () {
-  return readFile(process.env.NODE_CONFIGMAP_PATH, {encoding: 'utf8'}).then(configMap => {
+  return readFile(process.env.NODE_CONFIGMAP_PATH, { encoding: 'utf8' }).then(configMap => {
     // Parse the configMap, which is yaml
     const configMapParsed = jsyaml.safeLoad(configMap);
     return configMapParsed;
