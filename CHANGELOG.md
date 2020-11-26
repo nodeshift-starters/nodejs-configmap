@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.0.0](https://github.com/nodeshift-starters/nodejs-configmap/compare/v3.1.2...v4.0.0) (2020-11-26)
+
+
+### Features
+
+* upgrade pino from 5.13.6 to 6.3.2 ([#137](https://github.com/nodeshift-starters/nodejs-configmap/issues/137)) ([e712b1f](https://github.com/nodeshift-starters/nodejs-configmap/commit/e712b1ff371a90a76f85ca37bc2f6fa33a180ff8))
+* upgrade tape from 4.13.2 to 5.0.1 ([#138](https://github.com/nodeshift-starters/nodejs-configmap/issues/138)) ([f78153d](https://github.com/nodeshift-starters/nodejs-configmap/commit/f78153d034c4d9a22701458d47b343a91189e412))
+
+
+### Bug Fixes
+
+* package.json & package-lock.json to reduce vulnerabilities ([#130](https://github.com/nodeshift-starters/nodejs-configmap/issues/130)) ([f2f22c1](https://github.com/nodeshift-starters/nodejs-configmap/commit/f2f22c1395edba757824a7a7634f0ce81f9b02ec))
+* package.json & package-lock.json to reduce vulnerabilities ([#134](https://github.com/nodeshift-starters/nodejs-configmap/issues/134)) ([9a35417](https://github.com/nodeshift-starters/nodejs-configmap/commit/9a35417f5ffd66dbf24ef6581f2e54f3c5246a1f))
+* upgrade coveralls from 3.0.11 to 3.1.0 ([#132](https://github.com/nodeshift-starters/nodejs-configmap/issues/132)) ([d102f89](https://github.com/nodeshift-starters/nodejs-configmap/commit/d102f89380d75f0517d5e34b77b42578125a6d95))
+* upgrade coveralls from 3.0.9 to 3.0.11 ([#127](https://github.com/nodeshift-starters/nodejs-configmap/issues/127)) ([1a87e37](https://github.com/nodeshift-starters/nodejs-configmap/commit/1a87e37abdf990be4291bc51fa32c529cc5bc561))
+* upgrade debug from 4.1.1 to 4.2.0 ([#129](https://github.com/nodeshift-starters/nodejs-configmap/issues/129)) ([9615d7a](https://github.com/nodeshift-starters/nodejs-configmap/commit/9615d7ab5e853ef0deff672e3908ddd4b041c444))
+* upgrade js-yaml from 3.13.1 to 3.14.0 ([#133](https://github.com/nodeshift-starters/nodejs-configmap/issues/133)) ([466bc38](https://github.com/nodeshift-starters/nodejs-configmap/commit/466bc384f50ae7ca511bbcc98859bf54bf935ff0))
+* upgrade kube-probe from 0.4.0 to 0.5.0 ([#140](https://github.com/nodeshift-starters/nodejs-configmap/issues/140)) ([a3b4631](https://github.com/nodeshift-starters/nodejs-configmap/commit/a3b463149d1cf09287a321d4148809e4efef224e))
+* upgrade nodeshift from 6.0.2 to 6.2.0 ([#139](https://github.com/nodeshift-starters/nodejs-configmap/issues/139)) ([bc7c4fb](https://github.com/nodeshift-starters/nodejs-configmap/commit/bc7c4fb321b4c6c7a8167838f84e1352d5856d59))
+
 ### [3.1.2](https://github.com/nodeshift-starters/nodejs-configmap/compare/v3.1.1...v3.1.2) (2020-04-27)
 
 ### [3.1.1](https://github.com/nodeshift-starters/nodejs-configmap/compare/v3.1.0...v3.1.1) (2019-11-26)
