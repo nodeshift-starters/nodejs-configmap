@@ -89,7 +89,7 @@ const jsyaml = require('js-yaml');
 function retrieveConfigfMap () {
   return readFile(process.env.NODE_CONFIGMAP_PATH, { encoding: 'utf8' }).then(configMap => {
     // Parse the configMap, which is yaml
-    const configMapParsed = jsyaml.safeLoad(configMap);
+    const configMapParsed = jsyaml.load(configMap);
     return configMapParsed;
   });
 }
