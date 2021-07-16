@@ -48,7 +48,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
     "mocha": "^8.4.0",
-    "nodeshift": "~8.1.1",
+    "nodeshift": "~8.2.0",
     "nyc": "~15.1.0",
     "proxyquire": "~2.1.3",
     "sinon": "^10.0.0",
