@@ -30,9 +30,6 @@ const logger = require('pino')();
 
 const app = express();
 
-// Health Check Middleware
-const probe = require('kube-probe');
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -54,8 +51,14 @@ app.use('/api/greeting', (request, response) => {
   return response.send({ content: message.replace(/%s/g, name) });
 });
 
-// Set health check
-probe(app);
+// Add basic health check endpoints
+app.use('/ready', (request, response) => {
+  return response.sendStatus(200);
+});
+
+app.use('/live', (request, response) => {
+  return response.sendStatus(200);
+});
 
 // Periodic check for config map update
 // If new configMap is found, then set new log level
