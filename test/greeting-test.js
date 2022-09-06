@@ -9,7 +9,7 @@ describe('Greeting API', () => {
     const clock = sinon.useFakeTimers();
     const app = proxyquire('../app', {
       'js-yaml': {
-        safeLoad: data => {
+        load: data => {
           return data;
         }
       },
@@ -38,7 +38,7 @@ describe('Greeting API', () => {
     const clock = sinon.useFakeTimers();
     const app = proxyquire('../app', {
       'js-yaml': {
-        safeLoad: data => {
+        load: data => {
           return data;
         }
       },
@@ -66,7 +66,7 @@ describe('Greeting API', () => {
     const clock = sinon.useFakeTimers();
     const app = proxyquire('../app', {
       'js-yaml': {
-        safeLoad: data => {
+        load: data => {
           return data;
         }
       },
@@ -93,7 +93,7 @@ describe('Greeting API', () => {
     const clock = sinon.useFakeTimers();
     const app = proxyquire('../app', {
       'js-yaml': {
-        safeLoad: data => {
+        load: data => {
           return data;
         }
       },
@@ -118,7 +118,7 @@ describe('Greeting API', () => {
     const clock = sinon.useFakeTimers();
     const app = proxyquire('../app', {
       'js-yaml': {
-        safeLoad: data => {
+        load: data => {
           return data;
         }
       },
