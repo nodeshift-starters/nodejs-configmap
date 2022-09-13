@@ -35,9 +35,9 @@ active project. Then run the `npm run openshift` command.
 ```sh
 $ crc setup # Set-up the hypervisor
 $ crc start # Initialize the openshift cluster
-$ oc create configmap app-config --from-file=app-config.yml
 $ oc login -u developer # Login
 $ oc new-project my-example-project # Create a project to deploy to
+$ oc create configmap app-config --from-file=app-config.yml
 $ npm run openshift # Deploys the example app
 ```
 
