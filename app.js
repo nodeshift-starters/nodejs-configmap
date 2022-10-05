@@ -87,7 +87,7 @@ setInterval(() => {
 const jsyaml = require('js-yaml');
 
 // Find the Config Map
-function retrieveConfigfMap() {
+function retrieveConfigfMap () {
   return readFile(process.env.NODE_CONFIGMAP_PATH, { encoding: 'utf8' }).then(configMap => {
     // Parse the configMap, which is yaml
     const configMapParsed = jsyaml.load(configMap);
