@@ -19,13 +19,12 @@ $ npm install
 $ npm start
 ```
 
-If you want debug information, you can set `DEBUG` environment variable and start the application:
-
-```
-$ DEBUG=* npm start
-```
-
 This will launch the application on port 8080.
+
+Other options:
+
+* `npm run dev` same as `npm start` but with pretty output log.
+* `npm run dev:debug` shows debug information.
 
 ### OpenShift Local
 

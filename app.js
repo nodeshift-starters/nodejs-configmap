@@ -18,7 +18,7 @@
  *
  */
 
-// require('./tracing.js');
+const logger = require('./logger.js');
 
 const path = require('path');
 const fs = require('fs');
@@ -27,8 +27,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const readFile = promisify(fs.readFile);
-// Setup logging
-const logger = require('pino')();
 
 const app = express();
 
@@ -89,12 +87,12 @@ setInterval(() => {
 const jsyaml = require('js-yaml');
 
 // Find the Config Map
-function retrieveConfigfMap () {
+function retrieveConfigfMap() {
   return readFile(process.env.NODE_CONFIGMAP_PATH, { encoding: 'utf8' }).then(configMap => {
     // Parse the configMap, which is yaml
     const configMapParsed = jsyaml.load(configMap);
     return configMapParsed;
-  }).catch(error => console.error(error));
+  }).catch(error => logger.error(error));
 }
 
 module.exports = app;
