@@ -11,7 +11,7 @@
     "openshift": "nodeshift --dockerImage=registry.access.redhat.com/ubi8/nodejs-16",
     "openshift:enable:trace": "nodeshift --deploy.env NODE_OPTIONS='--require ./tracing.js' --dockerImage=registry.access.redhat.com/ubi8/nodejs-16",
     "start": "node .",
-    "dev": "node . | npx pino-pretty",
+    "dev": "NODE_CONFIGMAP_PATH=./app-config.yml node . | npx pino-pretty",
     "dev:debug": "DEBUG=* node . "
   },
   "main": "./bin/www",
