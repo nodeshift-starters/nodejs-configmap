@@ -1,66 +1,91 @@
 <html>
-
-<head>
-
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <title>Node.js HTTP + ConfigMap Example</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    />
+  </head>
 
-</head>
+  <body>
+    <div class="container" id="app">
+      <div>
+        <h1>Node.js HTTP + ConfigMap Example</h1>
+        <p class="lead">
+          This example showcases application configuration, using OpenShift
+          <em>configmaps</em>. It demonstrates application and runtime
+          configuration leveraging external configuration sources. Alongside the
+          basic means to set up a <em>configmap</em> and use with a specific
+          runtime, this example also demonstrates how changes to the
+          configuration can be applied to services already deployed in
+          OpenShift.
+        </p>
 
-<body>
+        <h2>Using the greeting service</h2>
 
-    <div class="container">
+        <form class="form-inline" @submit.prevent="getJSON">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              ref="name"
+              class="form-control"
+              id="name"
+              placeholder="World"
+            />
+          </div>
+          <button id="invoke" type="submit" class="btn btn-success">
+            Invoke
+          </button>
+        </form>
 
-        <div>
-            <h1>Node.js HTTP + ConfigMap Example</h1>
-            <p class="lead">This example showcases application configuration, using OpenShift <em>configmaps</em>. It demonstrates application and runtime configuration leveraging external configuration sources. Alongside the basic means to set up a <em>configmap</em>                and use with a specific runtime, this example also demonstrates how changes to the configuration can be applied to services already deployed in OpenShift.
-            </p>
+        <h3>Result:</h3>
+        <pre><code id="greeting-result">{{greetingResult}}</code></pre>
 
-            <h2>Using the greeting service</h2>
-
-            <form class="form-inline">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" class="form-control" id="name" placeholder="World">
-                </div>
-                <button id="invoke" type="submit" class="btn btn-success">Invoke</button>
-            </form>
-
-            <h3>Result:</h3>
-            <pre><code id="greeting-result">Invoke the service to see the result.</code></pre>
-
-            <p class="lead">
-                Once you have invoked the <em>greeting</em> service, you can reconfigure it:
-            </p>
-            <ol>
-                <li>Run <code>oc edit configmap app-config</code></li>
-                <li>Change the <code>message</code> entry to <code>Bonjour, %s from Kubernetes ConfigMap !</code></li>
-                <li>Change the <code>level</code> entry to <code>DEBUG</code></li>
-                <li>Save</li>
-            </ol>
-        </div>
+        <p class="lead">
+          Once you have invoked the <em>greeting</em> service, you can
+          reconfigure it:
+        </p>
+        <ol>
+          <li>Run <code>oc edit configmap app-config</code></li>
+          <li>
+            Change the <code>message</code> entry to
+            <code>Bonjour, %s from Kubernetes ConfigMap !</code>
+          </li>
+          <li>Change the <code>level</code> entry to <code>DEBUG</code></li>
+          <li>Save</li>
+        </ol>
+      </div>
     </div>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.10/vue.min.js"
+      integrity="sha512-H8u5mlZT1FD7MRlnUsODppkKyk+VEiCmncej8yZW1k/wUT90OQon0F9DSf/2Qh+7L/5UHd+xTLrMszjHEZc2BA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script>
-        $(document).ready(function() {
-            $("#invoke").click(function(e) {
-                let n = $("#name").val() || "World";
-                $.getJSON("/api/greeting?name=" + n, function(res) {
-                        $("#greeting-result").html(JSON.stringify(res));
-                    })
-                    .fail(function(jqxhr, textStatus, error) {
-                        $("#greeting-result").html("Unable to read the configuration");
-                    });
-                e.preventDefault();
-            });
-        });
+      const app = new Vue({
+        el: "#app",
+        data: {
+          greetingResult: 'Invoke the service to see the result.',
+        },
+        methods: {
+          async getJSON() {
+            const name = this.$refs.name.value;
+            const result = await fetch(`/api/greeting?name=${name}`);
+            if (!result.ok) {
+              this.greetingResult = 'Unable to read the configuration';
+            } else {
+              const data = await result.json();
+              this.greetingResult = JSON.stringify(data);
+            }
+          },
+        },
+      });
     </script>
-
-</body>
-
+  </body>
 </html>
